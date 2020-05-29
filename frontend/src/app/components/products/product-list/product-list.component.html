@@ -1,0 +1,55 @@
+<div class="row mt-4">
+  <div class="col-12">
+    <button class="btn btn-primary mr-3" (click)="onGetProducts()">Get products</button>
+    <a [routerLink]="['/new-product']" class="btn btn-success">Add new product</a>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-12">
+
+    <!-- Title -->
+    <h4 class="text-dark mb-3">List of products</h4>
+
+    <!-- Table with products -->
+    <table class="table">
+
+      <!-- caption -->
+      <caption *ngIf="products.length > 0">List of products</caption>
+      <caption *ngIf="!(products.length > 0)">Products not found</caption>
+
+      <!-- head -->
+      <thead>
+        <tr class="align-items-center">
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Status</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+
+      <!-- body -->
+      <tbody>
+        <tr *ngFor="let product of products; index as i;">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>
+            <span [class.badge-success]="product.status == 1" [class.badge-warning]="product.status == 0"
+              class="badge font-weight-normal text-white">
+              {{ product.status == 1 ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+          <td class="action-buttons">
+            <span class="btn btn-info btn-sm mr-2" (click)="onSelect(product)">details</span>
+            <span class="btn btn-danger btn-sm" (click)="onDelete(product)">delete</span>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>

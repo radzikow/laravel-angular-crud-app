@@ -1,0 +1,43 @@
+<div class="row mt-4">
+  <div class="col-12">
+
+    <!-- Title -->
+    <h4 class="text-dark mb-3">List of products</h4>
+
+    <!-- Table with products -->
+    <table class="table">
+
+      <!-- caption -->
+      <caption *ngIf="products.length > 0">List of products</caption>
+      <caption *ngIf="!(products.length > 0)">Products not found</caption>
+
+      <!-- head -->
+      <thead>
+        <tr class="align-items-center">
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+
+      <!-- body -->
+      <tbody>
+        <tr *ngFor="let product of products; index as i;">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>
+            <span [class.badge-success]="product.status == 1" [class.badge-warning]="product.status == 0"
+              class="badge font-weight-normal text-white">
+              {{ product.status == 1 ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>

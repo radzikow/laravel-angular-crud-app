@@ -1,0 +1,67 @@
+<div class="row mt-4">
+  <div class="col-12">
+
+    <div class="card">
+      <!-- <img [src]="" class="card-img-top" alt="Image"> -->
+      <div class="card-body">
+
+        <!-- name -->
+        <div *ngIf="!editStatus">
+          <h5 class="mt-2">Name:</h5>
+          <p class="card-title">{{ product.name }}</p>
+        </div>
+        <div *ngIf="editStatus">
+          <h5 class="mt-2">Name:</h5>
+          <input class="form-control" type="text" [(ngModel)]="newName">
+        </div>
+
+        <!-- description -->
+        <div *ngIf="!editStatus">
+          <h5 class="mt-2">Description:</h5>
+          <p class="card-title">{{ product.description }}</p>
+        </div>
+        <div *ngIf="editStatus">
+          <h5 class="mt-2">Description:</h5>
+          <input class="form-control" type="text" [(ngModel)]="newDescription">
+        </div>
+
+        <!-- price -->
+        <div *ngIf="!editStatus">
+          <h5 class="mt-2">Price:</h5>
+          <p class="card-title">{{ product.price }}</p>
+        </div>
+        <div *ngIf="editStatus">
+          <h5 class="mt-2">Price:</h5>
+          <input class="form-control" type="text" [(ngModel)]="newPrice">
+        </div>
+
+        <!-- status -->
+        <div *ngIf="!editStatus" class="mb-4">
+          <h5 class="mt-2">Status:</h5>
+          <p class="card-title">{{ product.status }}</p>
+        </div>
+        <div class="mb-4" *ngIf="editStatus">
+          <h5 class="mt-2">Status:</h5>
+          <select name="status" class="custom-select">
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
+          </select>
+        </div>
+
+        <a [routerLink]="['/products']" class="btn btn-primary btn-sm text-white mr-2">Back to list</a>
+
+        <div *ngIf="editStatus" class="my-2 d-inline">
+          <button class="btn btn-sm btn-success mr-2" (click)="onUpdate()">Save</button>
+          <button class="btn btn-sm btn-secondary mr-2" (click)="onCancel()">Cancel</button>
+        </div>
+
+        <div *ngIf="!editStatus" class="my-2 d-inline">
+          <button class="btn btn-sm btn-warning mr-2" (click)="onEdit(product)">Edit</button>
+          <button class="btn btn-sm btn-danger mr-2" (click)="onDelete(product)">Delete</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

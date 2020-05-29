@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-12">
+    <h4 class="text-dark mt-5">Edit product</h4>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+      <!-- name -->
+      <div class="form-group">
+        <label for="content">Content</label>
+        <input type="text" id="content" name="content" ngModel class="form-control">
+      </div>
+
+      <!-- description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" ngModel class="form-control">
+      </div>
+
+      <!-- price -->
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" id="price" name="price" ngModel class="form-control">
+      </div>
+
+      <!-- status -->
+      <!-- <div class="form-group">
+        <label for="status">Status</label>
+        <input class="form-control" type="checkbox" id="status" name="status" ngModel>
+      </div> -->
+
+      <div class="form-group">
+        <label for="status">Status</label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="status">Options</label>
+          </div>
+          <select name="status" class="custom-select">
+            <option selected>Choose...</option>
+            <option value="1">Active</option>
+            <option value="0">Inactive</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- submit -->
+      <button type="submit" class="btn btn-primary">Edit product</button>
+
+    </form>
+  </div>
+</div>
