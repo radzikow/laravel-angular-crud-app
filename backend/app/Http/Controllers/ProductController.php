@@ -61,7 +61,7 @@ class ProductController extends Controller
 
     if (!$product) {
       // http status: 404 Not Found
-      return response()->json(['message' => 'Product not found', 404]);
+      return response()->json(['message' => 'Product not found'], 404);
     }
 
     $product->name = $request->input('name');
