@@ -28,6 +28,7 @@ export class NewProductComponent implements OnInit {
       .subscribe(
         () => alert('Product created.')
       );
+      // clear form
     form.resetForm();
   }
 }
