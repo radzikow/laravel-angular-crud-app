@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'products/:id', component: ProductComponent },
   { path: 'new-product', component: NewProductComponent },
   { path: 'edit-product', component: EditProductComponent },
-  { path: 'products-public', component: ProductListPublicComponent }
+  { path: 'products-public', component: ProductListPublicComponent },
+  // { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

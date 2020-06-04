@@ -8,7 +8,7 @@
         <!-- name -->
         <div *ngIf="!editStatus">
           <h5 class="mt-2">Name:</h5>
-          <p class="card-title">{{ product.name }}</p>
+          <p class="card-title">{{ product?.name }}</p>
         </div>
         <div *ngIf="editStatus">
           <h5 class="mt-2">Name:</h5>
@@ -18,7 +18,7 @@
         <!-- description -->
         <div *ngIf="!editStatus">
           <h5 class="mt-2">Description:</h5>
-          <p class="card-title">{{ product.description }}</p>
+          <p class="card-title">{{ product?.description }}</p>
         </div>
         <div *ngIf="editStatus">
           <h5 class="mt-2">Description:</h5>
@@ -28,7 +28,7 @@
         <!-- price -->
         <div *ngIf="!editStatus">
           <h5 class="mt-2">Price:</h5>
-          <p class="card-title">{{ product.price }}</p>
+          <p class="card-title">{{ product?.price }}</p>
         </div>
         <div *ngIf="editStatus">
           <h5 class="mt-2">Price:</h5>
@@ -38,7 +38,7 @@
         <!-- status -->
         <div *ngIf="!editStatus" class="mb-4">
           <h5 class="mt-2">Status:</h5>
-          <p class="card-title">{{ product.status }}</p>
+          <p class="card-title">{{ product?.status }}</p>
         </div>
         <div class="mb-4" *ngIf="editStatus">
           <h5 class="mt-2">Status:</h5>
@@ -48,7 +48,7 @@
           </select>
         </div>
 
-        <a [routerLink]="['/products']" class="btn btn-primary btn-sm text-white mr-2">Back to list</a>
+        <a routerLink="/products" class="btn btn-primary btn-sm text-white mr-2">Back to list</a>
 
         <div *ngIf="editStatus" class="my-2 d-inline">
           <button class="btn btn-sm btn-success mr-2" (click)="onUpdate()">Save</button>

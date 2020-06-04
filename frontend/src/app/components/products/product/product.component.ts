@@ -11,14 +11,14 @@ import { Observable } from 'rxjs';
 })
 export class ProductComponent implements OnInit {
 
-  products: Product[];
+  // public products: Product[];
 
-  editStatus: boolean = false;
+  public editStatus: boolean = false;
 
-  newName: string = '';
-  newDescription: string = '';
-  newPrice: number = null;
-  newStatus: number = null;
+  public newName: string = '';
+  public newDescription: string = '';
+  public newPrice: number = null;
+  public newStatus: number = null;
 
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) { }
 

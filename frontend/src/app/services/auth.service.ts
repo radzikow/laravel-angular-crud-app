@@ -10,14 +10,14 @@ import { User } from '../interfaces/user';
 export class AuthService {
 
   // Base URL
-  private baseUrl = 'http://localhost:8000/api';
+  private baseUrl: string = 'http://localhost:8000/api';
 
   constructor(private token: TokenService, private http: HttpClient) { }
 
   // -----------------------
   // Register a new user
   // -----------------------
-  register(user: User) {
+  register(user: User): Observable<Object> {
     const body = JSON.stringify(user);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -46,6 +46,7 @@ export class AuthService {
   // Auth status
   // -----------------------
   private loggedIn = new BehaviorSubject<boolean>(this.token.loggedIn());
+  
   authStatus: Observable<boolean> = this.loggedIn.asObservable();
 
   // -----------------------

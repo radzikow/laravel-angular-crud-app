@@ -30,8 +30,11 @@ export class NavbarComponent implements OnInit {
   // Logout user
   logout(event: MouseEvent) {
     event.preventDefault();
+    // remove token form local storage
     this.token.remove();
+    // change auth status and navbar links
     this.auth.changeAuthStatus(false);
+    // navigate to login page
     this.router.navigateByUrl('/login');
   }
 }

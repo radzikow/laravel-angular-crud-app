@@ -12,11 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
-  public form = {
-    email: null,
-    password: null
-  }
-
+  // error message
   public error = null;
 
   constructor(

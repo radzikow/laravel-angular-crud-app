@@ -13,22 +13,8 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  // form data
-  public form = {
-    firstname: null,
-    lastname: null,
-    email: null,
-    password: null,
-    password_confirmation: null
-  }
-
-  // errors
-  public error = [
-    { firstname: [] },
-    { lastname: [] },
-    { email: [] },
-    { password: [] }
-  ];
+  // error message
+  public error = null;
 
   constructor(
     private auth: AuthService,
@@ -39,8 +25,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onRegister(form: NgForm) {
-    const newUser = {
+  onRegister(form: NgForm): void {
+    const newUser: User = {
       firstname: form.value.firstname,
       lastname: form.value.lastname,
       email: form.value.email,
@@ -52,13 +38,13 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  handleResponse(res) {
+  handleResponse(res): void {
     this.token.handle(res.access_token);
     this.auth.changeAuthStatus(true);
     this.router.navigateByUrl('/profile');
   }
 
-  handleError(err) {
+  handleError(err): void {
     this.error = err.error.errors;
   }
 
